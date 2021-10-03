@@ -1,7 +1,7 @@
 <div class="auth-page">
   <div class="container page">
     <div class="row"
-         data-cy="login-form">
+         data-testid="login-form">
 
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">{{ title }}</h1>
@@ -19,7 +19,7 @@
                 placeholder="Username"
                 class="form-control form-control-lg"
                 type="text"
-                data-cy="username"
+                data-testid="username"
                 *ngIf="authType == 'register'" />
             </fieldset>
             <fieldset class="form-group">
@@ -28,7 +28,7 @@
                 placeholder="Email"
                 class="form-control form-control-lg"
                 type="text"
-                data-cy="email" />
+                data-testid="email" />
             </fieldset>
             <fieldset class="form-group">
               <input
@@ -36,13 +36,13 @@
                 placeholder="Password"
                 class="form-control form-control-lg"
                 type="password"
-                data-cy="password" />
+                data-testid="password" />
             </fieldset>
             <button class="btn btn-lg btn-primary pull-xs-right"
                     [disabled]="!authForm.valid"
                     type="submit"
                     role="button"
-                    data-cy="login-button">
+                    data-testid="login-button">
               {{ title }}
             </button>
           </fieldset>

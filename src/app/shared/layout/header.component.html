@@ -60,14 +60,14 @@
         </a>
       </li>
 
-      <li class="nav-item" data-cy="useravatar">
+      <li class="nav-item" data-testid="useravatar">
         <a class="nav-link"
           *ngIf="currentUser"
           [routerLink]="['/profile', currentUser.username]"
           routerLinkActive="active"
-          data-cy="header-profile-link">
+          data-testid="header-profile-link">
           <img [src]="currentUser.image" *ngIf="currentUser.image" class="user-pic" />
-          <span data-cy="username">
+          <span data-testid="username">
             {{ currentUser.username }}
           </span>
         </a>

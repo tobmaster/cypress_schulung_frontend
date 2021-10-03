@@ -11,11 +11,11 @@ describe("Navigate to Log In page", () => {
       cy.get('.auth-page').should('contain', 'Sign in');
   
       // enter user data
-      cy.get('[data-cy=email]').type('testuser@example.com');
-      cy.get('[data-cy=password]').type('password');
+      cy.get('[data-testid=email]').type('testuser@example.com');
+      cy.get('[data-testid=password]').type('password');
   
       // click login button
-      cy.get('[data-cy="login-button"]').click();
+      cy.get('[data-testid="login-button"]').click();
   
       // check if user is logged in
       cy.url()
@@ -25,7 +25,7 @@ describe("Navigate to Log In page", () => {
           .find('.nav-link')
           .should('have.class', 'active');
   
-      cy.get('[data-cy="username"]').should('contain', 'Testuser');
+      cy.get('[data-testid="username"]').should('contain', 'Testuser');
     });
   });
   

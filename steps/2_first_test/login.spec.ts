@@ -9,13 +9,13 @@ describe("Navigate to Log In page", () => {
     cy.contains('Sign in');
 
     // enter user data
-    cy.get('[data-cy=email]').type('testuser@example.com');
-    cy.get('[data-cy=password]').type('password');
+    cy.get('[data-testid=email]').type('testuser@example.com');
+    cy.get('[data-testid=password]').type('password');
 
     // click login button
-    cy.get('[data-cy="login-button"]').click();
+    cy.get('[data-testid="login-button"]').click();
 
     // check if user is logged in
-    cy.get('[data-cy="username"]').should('contain', 'Testuser');
+    cy.get('[data-testid="username"]').should('contain', 'Testuser');
   });
 });
