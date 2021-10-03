@@ -3,10 +3,8 @@ context('User', () => {
     beforeEach(() => {
         // navigate to sign up page
         cy.visit('/login');
-
-        cy.server();
         cy.fixture('yourfeed').as('personalfeed');
-        cy.route('GET', '**/articles/feed?**', '@personalfeed');
+        cy.intercept('GET', '**/articles/feed?**', 'fixture:@personalfeed');
     });
 
     it('should be able to login', () => {
