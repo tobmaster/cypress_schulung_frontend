@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://172.20.21.129:3000/api'
+  api_url: 'https://cypress.eu.ngrok.io/api'
 };
