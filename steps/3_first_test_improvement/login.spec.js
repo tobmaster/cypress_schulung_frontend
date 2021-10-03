@@ -19,12 +19,12 @@ describe("Navigate to Log In page", () => {
   
       // check if user is logged in
       cy.url()
-          .should('eq', `${Cypress.config().baseUrl}/`);
+        .should('eq', `${Cypress.config().baseUrl}/`);
       
-        cy.contains('.nav-item', 'Your Feed')
-          .find('.nav-link')
-          .should('have.class', 'active');
-  
+      cy.contains('.nav-item', 'Your Feed')
+        .find('.nav-link')
+        .should('have.class', 'active');
+
       cy.get('[data-testid="username"]').should('contain', 'Testuser');
     });
   });
