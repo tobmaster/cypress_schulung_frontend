@@ -5,16 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod  --base-href ./ && cp CNAME dist/CNAME",
+    "start:e2e": "ng serve --configuration e2e",
+    "build": "ng build --prod  --base-href frontend && cp CNAME dist/CNAME",
     "test": "ng test",
     "lint": "ng lint --force",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "e2e": "ng e2e"
+    "cy:open": "$(npm bin)/cypress open",
+    "cy:run": "$(npm bin)/cypress run"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "7.2.4",
@@ -36,23 +33,10 @@
     "@angular/cli": "^7.3.1",
     "@angular/compiler-cli": "7.2.4",
     "@angular/language-service": "7.2.4",
-    "@types/jasmine": "~2.5.53",
-    "@types/jasminewd2": "~2.0.2",
     "@types/node": "^9.4.0",
     "codelyzer": "^4.5.0",
-    "cypress": "^3.4.1",
-    "jasmine-core": "~2.6.2",
-    "jasmine-spec-reporter": "~4.1.0",
-    "karma": "~1.7.0",
-    "karma-chrome-launcher": "~2.1.1",
-    "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
-    "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "pre-commit": "^1.2.2",
-    "protractor": "^5.4.2",
+    "cypress": "^8.5.0",
     "ts-node": "~4.1.0",
-    "tslint": "~5.9.1",
-    "typescript": "3.2.4"
+    "tslint": "~5.9.1"
   }
 }

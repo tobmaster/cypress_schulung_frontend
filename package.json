@@ -10,9 +10,6 @@
     "test": "ng test",
     "lint": "ng lint --force"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "7.2.4",
@@ -36,8 +33,6 @@
     "@angular/language-service": "7.2.4",
     "@types/node": "^9.4.0",
     "codelyzer": "^4.5.0",
-    "pre-commit": "^1.2.2",
-    "ts-node": "~4.1.0",
     "tslint": "~5.9.1"
   }
 }
