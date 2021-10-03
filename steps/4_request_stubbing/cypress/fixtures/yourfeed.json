@@ -1,0 +1,56 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "createdAt": "2019-10-06T22:34:29.029Z",
+      "updatedAt": "2019-10-06T22:34:29.029Z",
+      "slug": "cypressworkshop",
+      "title": "Cypress Workshop Berlin",
+      "description": "Ein Workshop über E2E testinmg",
+      "body": "Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?",
+      "tagList": [
+        "e2e",
+        "cypress",
+        "testing",
+        "javascript"
+      ],
+      "favorited": false,
+      "favoritesCount": 0,
+      "author": {
+        "id": 2,
+        "username": "tobias",
+        "bio": "Javascript Trainer",
+        "image": "https://pbs.twimg.com/profile_images/1140372616668225536/UM7KKNQ5_400x400.jpg",
+        "following": true
+      }
+    },
+    {
+      "id": 2,
+      "createdAt": "2019-10-06T22:34:29.029Z",
+      "updatedAt": "2019-10-06T22:34:29.029Z",
+      "slug": "efficienttesting",
+      "title": "Effizientes e2e",
+      "description": "e2e Testing macht Spaß",
+      "body": "Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?",
+      "tagList": [
+        "e2e",
+        "cypress",
+        "testing",
+        "spass"
+      ],
+      "favorited": true,
+      "favoritesCount": 5,
+      "author": {
+        "id": 3,
+        "username": "Hannah",
+        "bio": "Software Engineer",
+        "image": "https://javascript-days.de/wp-content/uploads/2019/06/Hannah-Ebert.jpg",
+        "following": true
+      }
+    }
+  ],
+  "articlesCount": 2
+}
+
+
+
