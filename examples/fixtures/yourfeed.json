@@ -1,0 +1,56 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "createdAt": "2021-03-06T22:34:29.029Z",
+      "updatedAt": "2021-03-06T22:34:29.029Z",
+      "slug": "cypressworkshop",
+      "title": "Cypress Workshop - JavaScript Days 2021",
+      "description": "Ein Workshop über E2E Testing mit Cypress",
+      "body": "42",
+      "tagList": [
+        "e2e",
+        "cypress",
+        "testing",
+        "javascript"
+      ],
+      "favorited": false,
+      "favoritesCount": 0,
+      "author": {
+        "id": 2,
+        "username": "tobias",
+        "bio": "Javascript Trainer",
+        "image": "https://cdn4.iconfinder.com/data/icons/super-hero/154/superman-avatar-hero-man-512.png",
+        "following": true
+      }
+    },
+    {
+      "id": 2,
+      "createdAt": "2021-02-06T22:34:29.029Z",
+      "updatedAt": "2021-02-06T22:34:29.029Z",
+      "slug": "efficienttesting",
+      "title": "Effizientes E2E Testing",
+      "description": "End-to-End Tests - ohne Schmerzen",
+      "body": "Das Leben ist wie eine Schachtel Pralinen, Man weiß nie, was man bekommt.",
+      "tagList": [
+        "e2e",
+        "cypress",
+        "testing",
+        "spass"
+      ],
+      "favorited": true,
+      "favoritesCount": 5,
+      "author": {
+        "id": 3,
+        "username": "Hannah",
+        "bio": "Software Engineer",
+        "image": "https://i.ebayimg.com/images/g/HI8AAOSwFNZWyWQR/s-l300.jpg",
+        "following": true
+      }
+    }
+  ],
+  "articlesCount": 2
+}
+
+
+
