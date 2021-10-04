@@ -1,50 +1,26 @@
-context('User', () => {
-
+/// <reference types="cypress" />
+describe("Navigate to Log In page", () => {
     beforeEach(() => {
-        // navigate to sign up page
-        cy.visit('/login');
-        cy.fixture('yourfeed').as('personalfeed');
-        cy.intercept('GET', '**/articles/feed?**', 'fixture:@personalfeed');
+      cy.visit("/login");
+      cy.url().should('include', '/login');
+      // enter user data
+      cy.get('[data-testid=email]').type('testuser@example.com');
+      cy.get('[data-testid=password]').type('password');
+  
+      cy.get('[data-testid=login-button]').click();
+  
+      cy.intercept('**/articles/feed?**', { fixture: 'yourfeed.json' }).as('yourfeed');
     });
-
-    it('should be able to login', () => {
-        // check if log in page is correct
-        cy.url().should('include', '/login');
-        cy.get('.auth-page')
-            .should('contain', 'Sign in');
-
-        // enter user data
-        cy.get('input[formcontrolname="email"]').type('tobi@somewhere.com');
-        cy.get('input[formcontrolname="password"]').type('Hannah');
-
-        // click submit button
-        cy.get('button[type="submit"]').click();
-
-        // check if user is logged in
-        cy.url()
-            .should('eq', `${Cypress.config().baseUrl}/`);
-        cy.contains('.nav-item', 'Your Feed')
-            .should('exist');
-        cy.get(':nth-child(4) > .nav-link')
-            .should('contain', 'Tobi');
+  
+    it('show appropriate "Your Feed"', () => {
+      cy.get('[data-testid=article-preview]')
+      .should('have.length', 2);
+  
+      cy.get('[data-testid=article-preview]').eq(0).find('h1').should('contain', 'Cypress Workshop Berlin');
+      cy.get('[data-testid=article-preview]').eq(0).find('p').should('contain', 'Ein Workshop über E2E testinmg');
+  
+      cy.get('[data-testid=article-preview]').eq(1).find('h1').should('contain', 'Effizientes e2e');
+      cy.get('[data-testid=article-preview]').eq(1).find('p').should('contain', 'e2e Testing macht Spaß');
     });
-
-    it('should show a personal feed', () => {
-        // check if log in page is correct
-        cy.url().should('include', '/login');
-        cy.get('.auth-page')
-            .should('contain', 'Sign in');
-
-        // enter user data
-        cy.get('input[formcontrolname="email"]').type('tobi@somewhere.com');
-        cy.get('input[formcontrolname="password"]').type('Hannah');
-
-        // click submit button
-        cy.get('button[type="submit"]').click();
-
-        cy.get('app-article-list')
-            .children('app-article-preview')
-            .should('have.length', 2);
-
-    });
-});
+  });
+  

@@ -20,7 +20,7 @@
         "id": 2,
         "username": "tobias",
         "bio": "Javascript Trainer",
-        "image": "https://pbs.twimg.com/profile_images/1140372616668225536/UM7KKNQ5_400x400.jpg",
+        "image": "https://pbs.twimg.com/profile_images/1349761496633516032/_O3vOqeH_400x400.jpg",
         "following": true
       }
     },
@@ -42,9 +42,9 @@
       "favoritesCount": 5,
       "author": {
         "id": 3,
-        "username": "Hannah",
-        "bio": "Software Engineer",
-        "image": "https://javascript-days.de/wp-content/uploads/2019/06/Hannah-Ebert.jpg",
+        "username": "Priyanka",
+        "bio": "Senior Software Engineer",
+        "image": "https://pbs.twimg.com/profile_images/1279069759527682050/u6M8kjNY_400x400.jpg",
         "following": true
       }
     }
