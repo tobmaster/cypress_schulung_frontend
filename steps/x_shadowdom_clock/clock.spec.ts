@@ -3,8 +3,7 @@ describe('toaser', () => {
 
     it('should toast', () =>  {
         
-        cy.visit('http://localhost:3333/');
-
+        cy.visit('http://localhost:8080/');
         
         cy.get('tasty-toaster').shadow()
             .as('toaster');
@@ -14,12 +13,13 @@ describe('toaser', () => {
             .invoke("val", 3)
             .trigger("change");
 
-      //  cy.clock();
+        // cy.clock();
+
         cy.get('@toaster')
             .find('.toaster .handle')
             .click();
             
-      //  cy.tick(10000);
+        cy.tick(10000);
 
         cy.get('@toaster')
             .find('.toasts .toast')
@@ -34,7 +34,7 @@ describe('toaser', () => {
             .find('.toaster .handle')
             .click();
 
-      //  cy.tick(10000);
+        cy.tick(10000);
 
         cy.get('@toaster')
             .find('.fire .particle').should('have.length.gt', 1);
