@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import '@testing-library/cypress/add-commands';
+
+Cypress.Commands.add('loginByUI', (email = 'testuser@example.com', password = 'password') => {
+    cy.visit('/login');
+    cy.get('app-auth-page').contains('Sign in');    
+    cy.get('[data-testid=email]').type(email);
+    cy.get('[data-testid=password]').type(password);
+    cy.get('[data-testid=login-button]').click();
+});
