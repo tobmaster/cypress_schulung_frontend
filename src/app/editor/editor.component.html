@@ -8,32 +8,36 @@
         <form [formGroup]="articleForm">
           <fieldset [disabled]="isSubmitting">
 
-            <fieldset class="form-group">
+            <div class="form-group">
+              <label class for="title">Article Title</label>
               <input class="form-control form-control-lg"
                 formControlName="title"
                 type="text"
-                placeholder="Article Title" />
-            </fieldset>
+                id="title" />
+            </div>
 
-            <fieldset class="form-group">
+            <div class="form-group">
+              <label class for="description">Description</label>
               <input class="form-control"
+                id="description"
                 formControlName="description"
-                type="text"
-                placeholder="What's this article about?" />
-            </fieldset>
+                type="text" />
+            </div>
 
-            <fieldset class="form-group">
+            <div class="form-group">
+              <label class for="body">Write your article (in markdown)</label>
               <textarea class="form-control"
                 formControlName="body"
-                rows="8"
-                placeholder="Write your article (in markdown)">
+                id="body"
+                rows="8">
               </textarea>
-            </fieldset>
+            </div>
 
-            <fieldset class="form-group">
+            <div class="form-group">
+              <label class for="tags">Enter tags</label>
               <input class="form-control"
+                id="tags"
                 type="text"
-                placeholder="Enter tags"
                 [formControl]="tagField"
                 (keyup.enter)="addTag()" />
 
@@ -44,7 +48,7 @@
                   {{ tag }}
                 </span>
               </div>
-            </fieldset>
+            </div>
 
             <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">
               Publish Article
