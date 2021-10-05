@@ -9,8 +9,8 @@
     "build": "ng build --prod  --base-href frontend && cp CNAME dist/CNAME",
     "test": "ng test",
     "lint": "ng lint --force",
-    "cy:open": "$(npm bin)/cypress open",
-    "cy:run": "$(npm bin)/cypress run"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +33,7 @@
     "@angular/cli": "^7.3.1",
     "@angular/compiler-cli": "7.2.4",
     "@angular/language-service": "7.2.4",
+    "@testing-library/cypress": "^8.0.1",
     "@types/node": "^9.4.0",
     "codelyzer": "^4.5.0",
     "cypress": "^8.5.0",
