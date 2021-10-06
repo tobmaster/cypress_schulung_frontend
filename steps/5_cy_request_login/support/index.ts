@@ -25,7 +25,7 @@ declare namespace Cypress {
      * Custom command to login using UI.
      * @example cy.loginByUI(email, password)
      */
-      loginByUI(value: string): Chainable;
+      loginByUI(email: string, password: string): Chainable;
     /**
      * Login test user fast
      * cy.loginTestuser()
