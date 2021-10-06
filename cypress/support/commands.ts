@@ -25,6 +25,16 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import '@testing-library/cypress/add-commands';
 
+declare global {
+    namespace Cypress {
+        interface Chainable<Subject> {
+            loginByUI(email: string, password: string): void,
+            loginTestUser(): Chainable<Subject>,
+            getByTestId(str: string): Chainable<Subject>
+        }
+    }
+}
+    
 Cypress.Commands.add('loginByUI', (email = 'testuser@example.com', password = 'password') => {
 
     cy.visit('/login');

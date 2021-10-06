@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -20,9 +22,9 @@ import './commands';
 // require('./commands')
 
 declare namespace Cypress {
-    interface Chainable {
+    interface Chainable<Subject> {
         loginByUI(email: string, password: string): void,
-        loginTestUser(): Chainable,
-        getByTestId(str: string): Chainable
+        loginTestUser(): Chainable<Subject>,
+        getByTestId(str: string): Chainable<Subject>
     }
 }
