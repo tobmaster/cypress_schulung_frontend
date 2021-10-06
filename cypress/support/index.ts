@@ -20,11 +20,3 @@ import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-declare namespace Cypress {
-    interface Chainable<Subject> {
-        loginByUI(email: string, password: string): void,
-        loginTestUser(): Chainable<Subject>,
-        getByTestId(str: string): Chainable<Subject>
-    }
-}
