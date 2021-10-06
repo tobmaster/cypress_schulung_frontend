@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -18,11 +20,3 @@ import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-declare namespace Cypress {
-    interface Chainable {
-        loginByUI(email: string, password: string): void,
-        loginTestUser(): Chainable,
-        getByTestId(str: string): Chainable
-    }
-}
