@@ -22,6 +22,7 @@ import './commands';
 declare namespace Cypress {
     interface Chainable {
         loginByUI(email: string, password: string): void,
+        loginTestUser(): Chainable,
         getByTestId(str: string): Chainable
     }
 }

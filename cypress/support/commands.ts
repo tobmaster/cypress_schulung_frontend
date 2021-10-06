@@ -41,3 +41,22 @@ Cypress.Commands.add('loginByUI', (email = 'testuser@example.com', password = 'p
 Cypress.Commands.add('getByTestId', (testid: string) => {
     return cy.get(`[data-testid=${testid}]`);
 });
+
+
+Cypress.Commands.add('loginTestUser', () => {
+    return cy.request({
+        method: 'POST',
+        url: 'https://cypress.eu.ngrok.io/api/users/login',
+        body: {
+            user:{
+                email:"testuser@example.com",
+                password:"password"
+            }
+        }
+    }).then((response) => {
+        console.log(response);
+        expect(response.status).to.eq(200);
+        expect(response.body.user).to.have.property('token');
+        localStorage.setItem("jwtToken", response.body.user.token);
+    });
+});
