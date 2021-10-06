@@ -3,7 +3,18 @@
 describe('Feed', () => {
 
     beforeEach(() => {
-        cy.intercept('**/articles/feed?**').as('yourfeed');
+        cy.intercept('**/articles/feed?**', (req) => {
+
+            req.continue((res) => {
+
+                console.log(res);
+                const { articles } = res.body;
+                const changedArticles = articles.map((article) => ({...article, createdAt: new Date()}));
+                res.send({ ...res, body: { ...res.body, articles: changedArticles } });
+
+            });
+
+        }).as('yourfeed');
         cy.loginTestUser();
         cy.visit('/');
     })
@@ -18,5 +29,5 @@ describe('Feed', () => {
                 cy.getByTestId('article-preview').eq(index).find('p').should('contain', article.description);
             });
         });
-    });
+    })
 });
