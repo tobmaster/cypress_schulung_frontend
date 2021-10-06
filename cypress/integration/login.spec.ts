@@ -14,8 +14,6 @@ describe('Login', () => {
         cy.visit('/');
         cy.contains('Sign in').click();
 
-        //cy.get('[data-testid=email]').type('testuser@example.com');
-
         cy.get('@email').type('testuser@example.com');
         
         cy.get('[data-testid=password]').type('password');
@@ -33,7 +31,7 @@ describe('Login', () => {
         .find('h1').should('contain', 'End-To-End Testing leichtgemacht');
 
         cy.get('[data-testid=article-preview]').eq(1)
-        .find('.tag-list > .tag-pi').as('tags');
+        .find('.tag-list > .tag-pill').as('tags');
 
         cy.get('@tags').eq(0).should('contain', 'e2e');
         cy.get('@tags').eq(1).should('contain', 'testing');
