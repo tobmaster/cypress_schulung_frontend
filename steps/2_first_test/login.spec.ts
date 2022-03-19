@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-describe("Navigate to Log In page", () => {
+describe('Navigate to Log In page', () => {
   beforeEach(() => {
-    cy.visit("/login");
+    cy.visit('/login');
   });
 
   it('should be able to log in', () => {
@@ -16,6 +16,6 @@ describe("Navigate to Log In page", () => {
     cy.get('[data-testid="login-button"]').click();
 
     // check if user is logged in
-    cy.get('[data-testid="username"]').should('contain', 'Testuser');
+    cy.get('[data-testid="username"]').should('contain', 'Test User');
   });
 });
