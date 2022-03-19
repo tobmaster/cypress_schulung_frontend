@@ -6,12 +6,12 @@ import { User, UserService } from '../core';
 
 @Component({
   selector: 'app-settings-page',
-  templateUrl: './settings.component.html'
+  templateUrl: './settings.component.html',
 })
 export class SettingsComponent implements OnInit {
   user: User = {} as User;
   settingsForm: FormGroup;
-  errors: Object = {};
+  errors: any = {};
   isSubmitting = false;
 
   constructor(
@@ -25,7 +25,7 @@ export class SettingsComponent implements OnInit {
       username: '',
       bio: '',
       email: '',
-      password: ''
+      password: '',
     });
     // Optional: subscribe to changes on the form
     // this.settingsForm.valueChanges.subscribe(values => this.updateUser(values));
@@ -49,11 +49,10 @@ export class SettingsComponent implements OnInit {
     // update the model
     this.updateUser(this.settingsForm.value);
 
-    this.userService
-    .update(this.user)
-    .subscribe(
-      updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.username),
-      err => {
+    this.userService.update(this.user).subscribe(
+      (updatedUser) =>
+        this.router.navigateByUrl('/profile/' + updatedUser.username),
+      (err) => {
         this.errors = err;
         this.isSubmitting = false;
       }
@@ -63,5 +62,4 @@ export class SettingsComponent implements OnInit {
   updateUser(values: Object) {
     Object.assign(this.user, values);
   }
-
 }

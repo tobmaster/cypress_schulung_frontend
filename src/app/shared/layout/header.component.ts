@@ -5,22 +5,19 @@ import { User, UserService } from '../../core';
 
 @Component({
   selector: 'app-layout-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-  constructor(
-    private userService: UserService
-  ) {}
-
-  currentUser: User;
+  currentUser: User = null;
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.userService.currentUser.pipe(
-        //delay(4300)
-      ).subscribe(
-      (userData) => {
+    this.userService.currentUser
+      .pipe
+      //delay(4300)
+      ()
+      .subscribe((userData) => {
         this.currentUser = userData;
-      }
-    );
+      });
   }
 }
