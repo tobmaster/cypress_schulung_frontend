@@ -71,3 +71,4 @@ typings/
 cypress/videos
 cypress/screenshots
 
+.angular/**/*

@@ -6,13 +6,13 @@ import { Article, ArticlesService } from '../core';
 
 @Component({
   selector: 'app-editor-page',
-  templateUrl: './editor.component.html'
+  templateUrl: './editor.component.html',
 })
 export class EditorComponent implements OnInit {
   article: Article = {} as Article;
   articleForm: FormGroup;
   tagField = new FormControl();
-  errors: Object = {};
+  errors: any = {};
   isSubmitting = false;
 
   constructor(
@@ -25,7 +25,7 @@ export class EditorComponent implements OnInit {
     this.articleForm = this.fb.group({
       title: '',
       description: '',
-      body: ''
+      body: '',
     });
 
     // Initialized tagList as empty array
@@ -37,7 +37,7 @@ export class EditorComponent implements OnInit {
 
   ngOnInit() {
     // If there's an article prefetched, load it
-    this.route.data.subscribe((data: { article: Article }) => {
+    this.route.data.subscribe((data: any) => {
       if (data.article) {
         this.article = data.article;
         this.articleForm.patchValue(data.article);
@@ -57,7 +57,9 @@ export class EditorComponent implements OnInit {
   }
 
   removeTag(tagName: string) {
-    this.article.tagList = this.article.tagList.filter(tag => tag !== tagName);
+    this.article.tagList = this.article.tagList.filter(
+      (tag) => tag !== tagName
+    );
   }
 
   submitForm() {
@@ -68,8 +70,8 @@ export class EditorComponent implements OnInit {
 
     // post the changes
     this.articlesService.save(this.article).subscribe(
-      article => this.router.navigateByUrl('/article/' + article.slug),
-      err => {
+      (article) => this.router.navigateByUrl('/article/' + article.slug),
+      (err) => {
         this.errors = err;
         this.isSubmitting = false;
       }
