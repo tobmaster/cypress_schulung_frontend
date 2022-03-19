@@ -26,17 +26,18 @@
 import '@testing-library/cypress/add-commands';
 
 declare global {
-    namespace Cypress {
-        interface Chainable<Subject> {
-            loginByUI(email: string, password: string): void,
-            loginTestUser(): Chainable<Subject>,
-            getByTestId(str: string): Chainable<Subject>
-        }
+  namespace Cypress {
+    interface Chainable<Subject> {
+      loginByUI(email: string, password: string): void;
+      loginTestUser(): Chainable<Subject>;
+      getByTestId(str: string): Chainable<Subject>;
     }
+  }
 }
-    
-Cypress.Commands.add('loginByUI', (email = 'testuser@example.com', password = 'password') => {
 
+Cypress.Commands.add(
+  'loginByUI',
+  (email = 'testuser@example.com', password = 'password') => {
     cy.visit('/login');
     cy.get('app-auth-page').contains('Sign in');
     cy.contains('Sign in').click();
@@ -45,28 +46,29 @@ Cypress.Commands.add('loginByUI', (email = 'testuser@example.com', password = 'p
     cy.get('[data-testid=login-button]').click();
     cy.url().should('include', `${Cypress.config().baseUrl}/`);
     return cy.get('[data-testid=username]').should('contain', 'Testuser');
-
-});
+  }
+);
 
 Cypress.Commands.add('getByTestId', (testid: string) => {
-    return cy.get(`[data-testid=${testid}]`);
+  return cy.get(`[data-testid=${testid}]`);
 });
 
-
 Cypress.Commands.add('loginTestUser', () => {
-    return cy.request({
-        method: 'POST',
-        url: 'https://cypress.eu.ngrok.io/api/users/login',
-        body: {
-            user:{
-                email:"testuser@example.com",
-                password:"password"
-            }
-        }
-    }).then((response) => {
-        console.log(response);
-        expect(response.status).to.eq(200);
-        expect(response.body.user).to.have.property('token');
-        localStorage.setItem("jwtToken", response.body.user.token);
+  return cy
+    .request({
+      method: 'POST',
+      url: 'http://164.92.132.42:3000/api/users/login',
+      body: {
+        user: {
+          email: 'testuser@example.com',
+          password: 'password',
+        },
+      },
+    })
+    .then((response) => {
+      console.log(response);
+      expect(response.status).to.eq(200);
+      expect(response.body.user).to.have.property('token');
+      localStorage.setItem('jwtToken', response.body.user.token);
     });
 });
