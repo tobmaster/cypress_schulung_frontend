@@ -1,23 +1,29 @@
 /// <reference types="cypress" />
 
-describe("login", () => {
+describe('login', () => {
   beforeEach(() => {
-    cy.visit("/login");
+    cy.visit('/login');
   });
 
-  it("login as example user", () => {
-    cy.get(".auth-page").contains("Sign in");
+  it('login as example user', () => {
+    cy.get('.auth-page').contains('Sign in');
 
-    cy.get('[data-testid="email"]').type("testuser@example.com");
+    cy.get('[data-testid="email"]').type('testuser@example.com');
 
-    cy.get('[data-testid="password"]').type("password");
+    cy.get('[data-testid="password"]').type('password');
 
     cy.get('[data-testid="login-button"]').click();
 
-    cy.get('[data-testid="username"]', { timeout: 10000 }).should(
-      "have.text",
-      "Test User"
-    );
+    cy.get('[data-testid="username"]').should('have.text', 'Test User');
+
+    cy.get('[data-testid="global-feed"]').click();
+
+    cy.get('[data-testid="article-preview"]').should('have.length', 3);
+
+    cy.get('[data-testid="article-preview"]')
+      .eq(0)
+      .find('.preview-link')
+      .contains('End to end testing leichtgemacht');
   });
 });
 
