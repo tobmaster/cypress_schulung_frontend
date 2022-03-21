@@ -1,5 +1,4 @@
 {
   "baseUrl": "http://localhost:4200",
-  "experimentalStudio": true,
-  "defaultCommandTimeout": 8000
+  "experimentalStudio": true
 }

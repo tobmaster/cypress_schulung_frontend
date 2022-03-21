@@ -1,14 +1,14 @@
-/// <reference types="cypress" />
-
 describe("login", () => {
   beforeEach(() => {
     cy.visit("/login");
   });
 
-  it("login as example user", () => {
+  it.only("login as example user", () => {
     cy.get(".auth-page").contains("Sign in");
 
-    cy.get('[data-testid="email"]').type("testuser@example.com");
+    cy.get('[data-testid="email"]').as("emailinput");
+
+    cy.get("@emailinput").type("testuser@example.com");
 
     cy.get('[data-testid="password"]').type("password");
 
@@ -18,7 +18,7 @@ describe("login", () => {
 
     cy.get('[data-testid="global-feed"]').click();
 
-    cy.get('[data-testid="article-preview"]').should("have.length", 3);
+    cy.get('[data-testid="article-preview"]').should("", 3);
 
     cy.get('[data-testid="article-preview"]')
       .eq(0)
@@ -26,8 +26,3 @@ describe("login", () => {
       .contains("End to end testing leichtgemacht");
   });
 });
-
-// Ingorien
-/*cy.get('[data-testid="username"]').should(($el) => {
-      expect($el).to.contain("Test User");
-    });*/
