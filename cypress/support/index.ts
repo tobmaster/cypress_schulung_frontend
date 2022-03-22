@@ -18,3 +18,8 @@ import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+declare namespace Cypress {
+  interface Chainable {
+    loginByUI(username?: string, password?: string): Chainable;
+  }
+}
