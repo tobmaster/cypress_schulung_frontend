@@ -9,8 +9,9 @@
     "test": "ng test",
     "lint": "ng lint --force",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "ct:open": "cypress open --component --browser electron",
+    "e2e:open": "cypress open --e2e --browser electron ",
+    "e2e:run": "cypress run --e2e",
+    "ct:open": "cypress open --component --browser electron ",
     "ct:run": "cypress run --component"
   },
   "private": true,

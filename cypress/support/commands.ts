@@ -1,5 +1,6 @@
+/// <reference types="cypress" />
 // ***********************************************
-// This example commands.js shows you how to
+// This example commands.ts shows you how to
 // create various custom commands and overwrite
 // existing commands.
 //
@@ -23,8 +24,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
+//
 import "@testing-library/cypress/add-commands";
+
+declare namespace Cypress {
+  interface Chainable {
+    loginByUI(username?: string, password?: string): Chainable<void>;
+    loginTestUser(): Chainable<void>;
+  }
+}
 
 Cypress.Commands.add(
   "loginByUI",
@@ -35,7 +43,7 @@ Cypress.Commands.add(
     cy.get('[data-testid="email"]').as("emailinput");
     cy.get("@emailinput").type(username);
     cy.get('[data-testid="password"]').type(password);
-    return cy.get('[data-testid="login-button"]').click();
+    cy.get('[data-testid="login-button"]').click();
   }
 );
 
