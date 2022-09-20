@@ -29,8 +29,8 @@ import "@testing-library/cypress/add-commands";
 
 declare namespace Cypress {
   interface Chainable {
-    loginByUI(username?: string, password?: string): Chainable<void>;
-    loginTestUser(): Chainable<void>;
+    loginByUI(username?: string, password?: string): Chainable;
+    loginTestUser(): Chainable;
   }
 }
 
