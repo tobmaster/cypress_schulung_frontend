@@ -9,7 +9,9 @@
     "test": "ng test",
     "lint": "ng lint --force",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "ct:open": "cypress open --component",
+    "ct:run": "cypress run --component"
   },
   "private": true,
   "dependencies": {
