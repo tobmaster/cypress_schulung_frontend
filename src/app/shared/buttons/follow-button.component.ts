@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Router } from "@angular/router";
 
-import { Profile, ProfilesService, UserService } from '../../core';
-import { concatMap ,  tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Profile, ProfilesService, UserService } from "../../core";
+import { concatMap, tap } from "rxjs/operators";
+import { of } from "rxjs";
 
 @Component({
-  selector: 'app-follow-button',
-  templateUrl: './follow-button.component.html'
+  selector: "app-follow-button",
+  templateUrl: "./follow-button.component.html",
 })
 export class FollowButtonComponent {
   constructor(
@@ -24,37 +24,43 @@ export class FollowButtonComponent {
     this.isSubmitting = true;
     // TODO: remove nested subscribes, use mergeMap
 
-    this.userService.isAuthenticated.pipe(concatMap(
-      (authenticated) => {
-        // Not authenticated? Push to login screen
-        if (!authenticated) {
-          this.router.navigateByUrl('/login');
-          return of(null);
-        }
+    this.userService.isAuthenticated
+      .pipe(
+        concatMap((authenticated) => {
+          // Not authenticated? Push to login screen
+          if (!authenticated) {
+            this.router.navigateByUrl("/login");
+            return of(null);
+          }
+          alert(this.profile.following);
+          // Follow this profile if we aren't already
+          if (!this.profile.following) {
+            return this.profilesService.follow(this.profile.username).pipe(
+              tap(
+                (data) => {
+                  this.profile = data;
+                  this.isSubmitting = false;
+                  this.toggle.emit(true);
+                },
+                (err) => (this.isSubmitting = false)
+              )
+            );
 
-        // Follow this profile if we aren't already
-        if (!this.profile.following) {
-          return this.profilesService.follow(this.profile.username)
-          .pipe(tap(
-            data => {
-              this.isSubmitting = false;
-              this.toggle.emit(true);
-            },
-            err => this.isSubmitting = false
-          ));
-
-        // Otherwise, unfollow this profile
-        } else {
-          return this.profilesService.unfollow(this.profile.username)
-          .pipe(tap(
-            data => {
-              this.isSubmitting = false;
-              this.toggle.emit(false);
-            },
-            err => this.isSubmitting = false
-          ));
-        }
-      }
-    )).subscribe();
+            // Otherwise, unfollow this profile
+          } else {
+            return this.profilesService.unfollow(this.profile.username).pipe(
+              tap(
+                (data) => {
+                  this.profile = data;
+                  this.isSubmitting = false;
+                  this.toggle.emit(false);
+                },
+                (err) => (this.isSubmitting = false)
+              )
+            );
+          }
+        })
+      )
+      .subscribe();
   }
 }
