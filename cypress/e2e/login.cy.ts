@@ -4,7 +4,7 @@ import { loginAs } from "../helper/login";
 
 describe("login", () => {
   beforeEach(() => {
-    cy.loginTestUser();
+    cy.loginByUI();
     cy.visit("/");
   });
 
@@ -15,15 +15,5 @@ describe("login", () => {
       .eq(0)
       .find(".preview-link")
       .contains("End to end testing leichtgemacht");
-  });
-
-  it("login as tobi user", () => {
-    loginAs("tobi");
-
-    cy.get('[data-testid="article-preview"]').should("have.length", 2);
-    cy.get('[data-testid="article-preview"]')
-      .eq(1)
-      .find(".preview-link")
-      .contains("Cypress makes life awesome!");
   });
 });

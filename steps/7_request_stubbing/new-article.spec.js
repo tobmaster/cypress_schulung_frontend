@@ -10,8 +10,10 @@ describe("New Article", () => {
 
     cy.url().should('include', '/editor');
 
-    cy.findByRole('textbox', { name: 'Article Title' }).type('Sample Article Title');
-    cy.findByRole('textbox', { name: 'Description' }).type('Sample Article Description');
+    cy.findByRole('textbox', { name: 'Article Title' })
+        .type('Sample Article Title');
+    cy.findByRole('textbox', { name: 'Description' })
+        .type('Sample Article Description');
 
     cy.findByRole('button', { name: 'Publish Article' }).click();
 
@@ -23,7 +25,5 @@ describe("New Article", () => {
           tagList: [],
       },
     });
-  
   });
-
 });
