@@ -1,0 +1,7 @@
+{
+    "apiUrl": "SOME_URL",
+    "project": "workshop",
+    "branchName": "main",
+    "apiKey": "SECRET",
+    "enableSoftAssert": true
+}
