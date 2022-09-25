@@ -7,15 +7,20 @@ describe("login", () => {
 
   it("should be able to log in", () => {
     // check if log in page is correct
-    //cy.visit("https://www.cypress.io");
+    cy.visit("https://www.cypress.io");
+    cy.url().should("contain", "cypress.io");
+    cy.contains(
+      "Fast, easy and reliable testing for anything that runs in a browser"
+    );
 
     cy.origin("https://search.brave.com", () => {
       cy.visit("/");
 
-      cy.get("#searchbox").type("Cypress");
+      cy.get("#searchbox").type("cypress docs origin");
       cy.get("#searchbox").type("{enter}");
-      cy.contains("JavaScript End to End Testing Framework").click();
+      cy.contains("origin | Cypress Documentation").click();
     });
-    //  cy.contains("The web has evolved. Finally, testing has too.").click();
+
+    cy.get(".main-content-header").should("contain", "origin");
   });
 });
