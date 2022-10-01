@@ -24,10 +24,43 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('loginByUI', (email = 'testuser@example.com', password = 'password') => {
-    cy.visit('/login');
-    cy.get('app-auth-page').contains('Sign in');    
-    cy.get('[data-testid=email]').type(email);
-    cy.get('[data-testid=password]').type(password);
-    return cy.get('[data-testid=login-button]').click();
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      loginByUI(username?: string, password?: string): Chainable;
+      loginTestUser(): Chainable;
+    }
+  }
+}
+
+Cypress.Commands.add(
+  "loginByUI",
+  (username = "testuser@example.com", password = "password") => {
+    cy.visit("/login");
+    cy.url().should("contain", "/login");
+    cy.get(".auth-page").contains("Sign in");
+    cy.get('[data-testid="email"]').as("emailinput");
+    cy.get("@emailinput").type(username);
+    cy.get('[data-testid="password"]').type(password);
+    cy.get('[data-testid="login-button"]').click();
+  }
+);
+
+Cypress.Commands.add("loginTestUser", () => {
+  return cy
+    .request({
+      method: "POST",
+      url: "http://vrt.struckmeier.name:3000/api/users/login",
+      body: {
+        user: {
+          email: "testuser@example.com",
+          password: "password",
+        },
+      },
+    })
+    .then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body.user).to.have.property("token");
+      localStorage.setItem("jwtToken", response.body.user.token);
+    });
 });

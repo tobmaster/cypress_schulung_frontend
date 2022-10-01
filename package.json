@@ -1,5 +1,6 @@
 {
   "name": "ang2-conduit",
+  "description": "Test subject for cypress workshop",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
