@@ -12,10 +12,10 @@ describe("Feed", () => {
       .should('have.length', 2);
 
     cy.get('[data-testid=article-preview]').eq(0).find('h1').should('contain', 'Cypress Workshop Berlin');
-    cy.get('[data-testid=article-preview]').eq(0).find('p').should('contain', 'Ein Workshop über E2E testinmg');
+    cy.get('[data-testid=article-preview]').eq(0).find('p').should('contain', 'A workshop on E2E testing');
 
-    cy.get('[data-testid=article-preview]').eq(1).find('h1').should('contain', 'Effizientes e2e');
-    cy.get('[data-testid=article-preview]').eq(1).find('p').should('contain', 'e2e Testing macht Spaß');
+    cy.get('[data-testid=article-preview]').eq(1).find('h1').should('contain', 'Efficient E2E');
+    cy.get('[data-testid=article-preview]').eq(1).find('p').should('contain', 'E2E is fun!');
   });
 
   /** Check the values from response independent of the response */
@@ -29,5 +29,4 @@ describe("Feed", () => {
       });
     });
   });
-
 });
