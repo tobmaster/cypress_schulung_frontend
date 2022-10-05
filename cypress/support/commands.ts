@@ -49,3 +49,22 @@ Cypress.Commands.add(
     }
 )
 
+Cypress.Commands.add(
+    "loginByApi",
+    (username = "testuser@example.com", password = "password") => {
+     return cy.request({
+        method: "POST",
+        url: "http://vrt.struckmeier.name:3000/api/users/login",
+        body: {
+            user: {
+                email: username,
+                password: password
+            }
+        }
+     }).then((response)=> {
+        expect(response.status).to.eq(200);
+        expect(response.body.user).to.have.property("token");
+        localStorage.setItem('jwtToken', response.body.user.token);
+     })
+    }
+)

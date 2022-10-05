@@ -6,8 +6,10 @@ describe("Login", () => {
   });
 
   it("should be able to login", () => {
+
     cy.wait('@yourfeed').its('response.statusCode').should('equal', 200);
     cy.get('[data-testid=article-preview]').eq(0).as('article');
+
 
     cy.get('[data-testid=article-preview]').eq(0).find('h1').should('contain', 'Cypress Workshop Berlin');
     cy.get('[data-testid=article-preview]').eq(0).find('p').should('contain', 'A workshop on E2E testing');
