@@ -1,0 +1,53 @@
+{
+    "articles": [
+      {
+        "id": 1,
+        "createdAt": "2019-10-06T22:34:29.029Z",
+        "updatedAt": "2019-10-06T22:34:29.029Z",
+        "slug": "cypressworkshop",
+        "title": "Cypress Workshop Berlin",
+        "description": "A workshop on E2E testing",
+        "body": "He heard soft footsteps behind him. That did not bode well. Who would follow him, late at night, and in this narrow alley in the middle of the badly known harbor district? Just when he had done the thing of his life and wanted to disappear with the loot! Had one of his countless colleagues had the same idea, watched him and waited to relieve him of the fruits of his labor?",
+        "tagList": [
+          "e2e",
+          "cypress",
+          "testing",
+          "javascript"
+        ],
+        "favorited": false,
+        "favoritesCount": 0,
+        "author": {
+          "id": 2,
+          "username": "tobias",
+          "bio": "Javascript Trainer",
+          "image": "https://pbs.twimg.com/profile_images/1349761496633516032/_O3vOqeH_400x400.jpg",
+          "following": true
+        }
+      },
+      {
+        "id": 2,
+        "createdAt": "2019-10-06T22:34:29.029Z",
+        "updatedAt": "2019-10-06T22:34:29.029Z",
+        "slug": "efficienttesting",
+        "title": "Efficient E2E",
+        "description": "E2E Testing is fun!",
+        "body": "He heard soft footsteps behind him. That did not bode well. Who would follow him, late at night, and in this narrow alley in the middle of the badly known harbor district? Just when he had done the thing of his life and wanted to disappear with the loot! Had one of his countless colleagues had the same idea, watched him and waited to relieve him of the fruits of his labor?",
+        "tagList": [
+          "e2e",
+          "cypress",
+          "testing",
+          "spass"
+        ],
+        "favorited": true,
+        "favoritesCount": 5,
+        "author": {
+          "id": 3,
+          "username": "Ramona",
+          "bio": "Software Engineer",
+          "image": "https://pbs.twimg.com/profile_images/1279069759527682050/u6M8kjNY_400x400.jpg",
+          "following": true
+        }
+      }
+    ],
+    "articlesCount": 2
+  }

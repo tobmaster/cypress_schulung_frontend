@@ -35,3 +35,17 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add(
+    "loginByUI",
+    (username = "testuser@example.com", password = "password") => {
+        cy.visit("/login");
+        cy.url().should("contain", "/login");
+        cy.get(".auth-page").contains("Sign in");
+        cy.get('[data-testid="email"]').as("emailinput");
+        cy.get("@emailinput").type(username);
+        cy.get('[data-testid="password"]').type(password);
+        cy.get('[data-testid="login-button"]').click();
+    }
+)
+
