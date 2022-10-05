@@ -8,7 +8,10 @@
     "start": "ng serve",
     "build": "ng build --prod  --base-href frontend && cp CNAME dist/CNAME",
     "test": "ng test",
-    "lint": "ng lint --force"
+    "lint": "ng lint --force",
+    "cy:open": "cypress open",
+    "e2e:open": "cypress open --e2e",
+    "e2e:run": "cypress run --e2e"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +34,7 @@
     "@angular/compiler-cli": "^14.2.2",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "cypress": "^10.9.0",
     "jasmine-core": "~4.0.0",
     "typescript": "~4.6.2"
   },
