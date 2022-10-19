@@ -6,7 +6,7 @@ describe("Login", () => {
   });
 
   it("should be able to login", () => {
-    //const tags = ["e2e", "testing", "cypress"];
+    const tags = ["e2e", "testing", "cypress"];
     
 
     cy.get('[data-testid="global-feed"]').click();
@@ -16,13 +16,12 @@ describe("Login", () => {
     cy.log('Config', Cypress.config())
     cy.get('@article').find('.preview-link').contains('Impostor says "End-To-End Testing leichtgemacht"');
     cy.get('@article').find('.tag-list > .tag-pill').as('tags')
-/*
+
     cy.get('@article').find('.tag-list > .tag-pill').then((taglist) => {
       tags.forEach((element)=>{
-        cy.wrap(taglist)
-
+        cy.wrap(taglist).should('contain', element);
       })
-    });*/
+    });
     
 
     cy.get('@tags').eq(0).should('contain', 'e2e')
