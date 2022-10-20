@@ -32,7 +32,6 @@ export class FollowButtonComponent {
             this.router.navigateByUrl("/login");
             return of(null);
           }
-          alert(this.profile.following);
           // Follow this profile if we aren't already
           if (!this.profile.following) {
             return this.profilesService.follow(this.profile.username).pipe(

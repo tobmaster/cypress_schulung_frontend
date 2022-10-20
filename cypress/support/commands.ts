@@ -39,6 +39,7 @@
 declare namespace Cypress {
     interface Chainable {
         loginByUI(username?: string, password?: string): Chainable
+        loginByAPI(username?: string, password?: string): Chainable
     }
 }
 
@@ -53,3 +54,25 @@ Cypress.Commands.add(
         cy.get('[data-testid="username"]').should('contain', 'testuser');
     }
 )
+
+
+Cypress.Commands.add(
+    "loginByAPI",
+    (username = "testuser@example.com", password = "password") => {
+        cy.request({
+            method: "POST",
+            url: "http://vrt.struckmeier.name:3000/api/users/login",
+            body: {
+                user: {
+                    email: username,
+                    password: password
+                }
+            }
+        }).then(response => {
+          expect(response.status).to.equal(200);
+          expect(response.body.user).to.have.property('token');
+          localStorage.setItem('jwtToken', response.body.user.token);
+        })
+    }
+)
+
