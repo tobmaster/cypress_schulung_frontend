@@ -1,6 +1,10 @@
+//import { delayLogin } from "../helper/delay";
+
 describe('Login', () => {
 
   beforeEach(()=>{
+  //  delayLogin();
+        
     cy.visit('/login');
     cy.url().should('equal', `${Cypress.config().baseUrl}/login`);
     cy.get('.auth-page').contains('Sign in');
@@ -12,7 +16,8 @@ describe('Login', () => {
 
     cy.get('[data-testid="login-button"]').click();
 
-    cy.get('[data-testid="username"]').should('contain', 'testuser');
+    //cy.get('[data-testid="username"]', {timeout: 6000}).should('contain', 'testuser');
+    cy.get('[data-testid="username"]', {timeout: 100000000000000}).should('contain', 'testuser');
   })
 
   it.skip('should not login with wrong password', () => {
