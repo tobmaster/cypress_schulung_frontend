@@ -35,3 +35,21 @@
 //     }
 //   }
 // }
+
+declare namespace Cypress {
+    interface Chainable {
+        loginByUI(username?: string, password?: string): Chainable
+    }
+}
+
+Cypress.Commands.add(
+    "loginByUI",
+    (username = "testuser@example.com", password = "password") => {
+        cy.url().should('equal', `${Cypress.config().baseUrl}/login`);
+        cy.get('.auth-page').contains('Sign in');
+        cy.get('[data-testid="email"]').type(username);
+        cy.get('[data-testid="password"]').type(password);
+        cy.get('[data-testid="login-button"]').click();
+        cy.get('[data-testid="username"]').should('contain', 'testuser');
+    }
+)

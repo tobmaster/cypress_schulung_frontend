@@ -1,20 +1,29 @@
 
 
 describe('Login und feed', () => {
+    beforeEach(() => {
+        cy.intercept('**/articles/feed?**', { fixture: 'yourfeed.json' }).as('yourfeed');
+
+        cy.visit('/login');
+        cy.loginByUI();
+    });
 
     it('should login as test user and validate entry', () => {
         dle
         const expectedTags = ['cypress','e2e','testing'];
 
         // Arrange
-        cy.visit('/login');
-        cy.url().should('equal', `${Cypress.config().baseUrl}/login`);
-        cy.get('.auth-page').contains('Sign in');
-        cy.get('[data-testid="email"]').type('testuser@example.com');
-        cy.get('[data-testid="password"]').type('password');
-        cy.get('[data-testid="login-button"]').click();
-        cy.get('[data-testid="username"]').should('contain', 'testuser');
+        cy.wait('@yourfeed').its('response.statusCode').should('equal', 200);
+
+        cy.get('[data-testid=article-preview]').eq(0).find('h1').should('contain', 'Cypress Workshop Berlin');
+        cy.get('[data-testid=article-preview]').eq(0).find('p').should('contain', 'Ein Workshop über E2E testinmg');
+
+        cy.get('[data-testid=article-preview]').eq(1).find('h1').should('contain', 'Effizientes e2e');
+        cy.get('[data-testid=article-preview]').eq(1).find('p').should('contain', 'e2e Testing macht Spaß');
+
+        //cy.pause();
         
+
         // Act
         cy.get('[data-testid="global-feed"]').click();
 
