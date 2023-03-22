@@ -1,46 +1,41 @@
 {
-  "name": "ang2-conduit",
-  "description": "Test subject for cypress workshop",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod  --base-href frontend && cp CNAME dist/CNAME",
-    "test": "ng test",
-    "lint": "ng lint --force",
-    "cy:open": "cypress open",
-    "e2e:open": "cypress open --e2e",
-    "e2e:run": "cypress run --e2e",
-    "ct:open": "cypress open --component",
-    "ct:run": "cypress run --component"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^14.2.2",
-    "@angular/common": "^14.2.2",
-    "@angular/compiler": "^14.2.2",
-    "@angular/core": "^14.2.2",
-    "@angular/forms": "^14.2.2",
-    "@angular/platform-browser": "^14.2.2",
-    "@angular/platform-browser-dynamic": "^14.2.2",
-    "@angular/router": "^14.2.2",
-    "cypress": "^10.10.0",
-    "marked": "^0.3.9",
-    "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.3",
-    "@angular/cli": "^14.2.3",
-    "@angular/compiler-cli": "^14.2.2",
-    "@types/jasmine": "~3.10.0",
-    "@types/node": "^12.11.1",
-    "jasmine-core": "~4.0.0",
-    "typescript": "~4.6.2"
-  },
-  "volta": {
-    "node": "16.14.2"
-  }
+    "name": "ang2-conduit",
+    "description": "Test subject for cypress workshop",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build --prod  --base-href frontend && cp CNAME dist/CNAME",
+        "test": "ng test",
+        "lint": "ng lint --force"
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "^14.2.2",
+        "@angular/common": "^14.2.2",
+        "@angular/compiler": "^14.2.2",
+        "@angular/core": "^14.2.2",
+        "@angular/forms": "^14.2.2",
+        "@angular/platform-browser": "^14.2.2",
+        "@angular/platform-browser-dynamic": "^14.2.2",
+        "@angular/router": "^14.2.2",
+        "marked": "^0.3.9",
+        "rxjs": "~7.5.0",
+        "tslib": "^2.3.0",
+        "zone.js": "~0.11.4"
+    },
+    "devDependencies": {
+        "cypress": "^10.10.0",
+        "@angular-devkit/build-angular": "^14.2.3",
+        "@angular/cli": "^14.2.3",
+        "@angular/compiler-cli": "^14.2.2",
+        "@types/jasmine": "~3.10.0",
+        "@types/node": "^12.11.1",
+        "jasmine-core": "~4.0.0",
+        "typescript": "~4.6.2"
+    },
+    "volta": {
+        "node": "16.14.2"
+    }
 }
