@@ -40,6 +40,7 @@ declare global {
     namespace Cypress {
         interface Chainable {
             loginByUI(username?: string, password?: string): Chainable;
+            loginByAPI(username?: string, password?: string): Chainable;
         }
     }
 }
@@ -50,11 +51,35 @@ Cypress.on("uncaught:exception", (err, runnable) => {
     return false;
 });
 
-Cypress.Commands.add("loginByUI",
+Cypress.Commands.add(
+    "loginByUI",
     (username = "testuser@example.com", password = "password") => {
         cy.visit("/login");
         cy.url().should("contain", "/login");
         cy.get(".auth-page").contains("Sign in");
         cy.get('[data-testid="email"]').type(username);
         cy.get('[data-testid="password"]').type(password + "{enter}");
- });
+    }
+);
+
+Cypress.Commands.add(
+    "loginByAPI",
+    (username = "testuser@example.com", password = "password") => {
+        return cy
+            .request({
+                method: "POST",
+                url: "http://vrt.struckmeier.name:3000/api/users/login",
+                body: {
+                    user: {
+                        email: "testuser@example.com",
+                        password: "password",
+                    },
+                },
+            })
+            .then((response) => {
+                expect(response.status).to.eq(200);
+                expect(response.body.user).to.have.property("token");
+                localStorage.setItem("jwtToken", response.body.user.token);
+            });
+    }
+);

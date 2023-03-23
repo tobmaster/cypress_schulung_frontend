@@ -3,12 +3,14 @@ import { login } from "../helper/login";
 describe("empty spec", () => {
     beforeEach(() => {
         cy.loginByUI();
-        cy.get('[data-testid="username"]')
-            .should("contain", 'Test User');
+        //cy.visit("/");
+        cy.get('[data-testid="username"]').should("contain", "Test User");
     });
 
     it("should show your feed", () => {
-        cy.intercept("**/articles/feed?**", { fixture: 'yourfeed.json' }).as("yourFeed");
+        cy.intercept("**/articles/feed?**", { fixture: "yourfeed.json" }).as(
+            "yourFeed"
+        );
         cy.visit("/");
 
         cy.wait("@yourFeed").then((feedRes) => {
