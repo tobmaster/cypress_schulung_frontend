@@ -36,8 +36,25 @@
 //   }
 // }
 
+declare global {
+    namespace Cypress {
+        interface Chainable {
+            loginByUI(username?: string, password?: string): Chainable;
+        }
+    }
+}
+
 Cypress.on("uncaught:exception", (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
     return false;
 });
+
+Cypress.Commands.add("loginByUI",
+    (username = "testuser@example.com", password = "password") => {
+        cy.visit("/login");
+        cy.url().should("contain", "/login");
+        cy.get(".auth-page").contains("Sign in");
+        cy.get('[data-testid="email"]').type(username);
+        cy.get('[data-testid="password"]').type(password + "{enter}");
+ });
