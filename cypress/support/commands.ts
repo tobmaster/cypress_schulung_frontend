@@ -25,13 +25,33 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+export {}
+
+declare global {
+    namespace Cypress {
+        interface Chainable {
+            loginByUI(username?: string, password?: string): Chainable
+
+            // drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
+            // dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
+            // visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
+        }
+    }
+}
+
+Cypress.Commands.add("loginByUI", (username, password) => {
+    cy.visit('/login');
+
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/login`);
+
+    cy.get('[data-testid="login-form"]')
+        .should('contain', 'Sign in');
+
+    cy.get('[data-testid="email"]')
+        .type(username);
+    cy.get('[data-testid="password"]')
+        .type(password + "{enter}", {log: false});
+
+    cy.get('[data-testid="username"]')
+        .should('contain', 'Test User');
+})

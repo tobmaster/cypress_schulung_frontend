@@ -2,20 +2,7 @@ describe('Test Feed', () => {
     beforeEach(() => {
         cy.intercept('**/articles/feed?**', {fixture: 'yourfeed'}).as('articles');
 
-        cy.visit('/login');
-
-        cy.url().should('eq', `${Cypress.config('baseUrl')}/login`);
-
-        cy.get('[data-testid="login-form"]')
-            .should('contain', 'Sign in');
-
-        cy.get('[data-testid="email"]')
-            .type("testuser@example.com");
-        cy.get('[data-testid="password"]')
-            .type("password{enter}");
-
-        cy.get('[data-testid="username"]')
-            .should('contain', 'Test User');
+        cy.loginByUI("testuser@example.com", "password");
     });
 
     it('should contain correct articles', () => {
