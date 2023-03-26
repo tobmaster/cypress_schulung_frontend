@@ -10,7 +10,7 @@
         "test": "ng test",
         "lint": "ng lint --force",
         "cy:open": "cypress open",
-        "e2e:open": "cypress open --e2e --browser electron"
+        "e2e:open": "cypress open --e2e --browser edge"
     },
     "private": true,
     "dependencies": {
