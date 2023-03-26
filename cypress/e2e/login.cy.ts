@@ -1,7 +1,7 @@
 describe('template spec', () => {
 
     it('passes', () => {
-        cy.visit('http://localhost:4200/login');
+        cy.visit('/login');
 
         cy.url().should('eq', `${Cypress.config('baseUrl')}/login`);
 
