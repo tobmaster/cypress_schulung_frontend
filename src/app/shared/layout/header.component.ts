@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { delay } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { delay } from "rxjs/operators";
 
-import { User, UserService } from '../../core';
+import { User, UserService } from "../../core";
 
 @Component({
-  selector: 'app-layout-header',
-  templateUrl: './header.component.html',
+  selector: "app-layout-header",
+  templateUrl: "./header.component.html",
 })
 export class HeaderComponent implements OnInit {
   currentUser: User = null;

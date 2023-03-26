@@ -14,7 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -25,6 +25,6 @@ declare namespace Cypress {
      * Custom command to login using UI.
      * @example cy.loginByUI(email, password)
      */
-      loginByUI(value: string): Chainable
+    loginByUI(value: string): Chainable;
   }
 }

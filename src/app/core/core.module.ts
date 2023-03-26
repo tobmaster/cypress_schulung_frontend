@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpTokenInterceptor } from "./interceptors/http.token.interceptor";
 
 import {
   ApiService,
@@ -11,13 +11,11 @@ import {
   JwtService,
   ProfilesService,
   TagsService,
-  UserService
-} from './services';
+  UserService,
+} from "./services";
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
     ApiService,
@@ -27,8 +25,8 @@ import {
     JwtService,
     ProfilesService,
     TagsService,
-    UserService
+    UserService,
   ],
-  declarations: []
+  declarations: [],
 })
-export class CoreModule { }
+export class CoreModule {}

@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  UntypedFormControl,
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { Article, ArticlesService } from '../core';
+import { Article, ArticlesService } from "../core";
 
 @Component({
-  selector: 'app-editor-page',
-  templateUrl: './editor.component.html',
+  selector: "app-editor-page",
+  templateUrl: "./editor.component.html",
 })
 export class EditorComponent implements OnInit {
   article: Article = {} as Article;
@@ -23,9 +27,9 @@ export class EditorComponent implements OnInit {
   ) {
     // use the FormBuilder to create a form group
     this.articleForm = this.fb.group({
-      title: '',
-      description: '',
-      body: '',
+      title: "",
+      description: "",
+      body: "",
     });
 
     // Initialized tagList as empty array
@@ -53,7 +57,7 @@ export class EditorComponent implements OnInit {
       this.article.tagList.push(tag);
     }
     // clear the input
-    this.tagField.reset('');
+    this.tagField.reset("");
   }
 
   removeTag(tagName: string) {
@@ -70,7 +74,7 @@ export class EditorComponent implements OnInit {
 
     // post the changes
     this.articlesService.save(this.article).subscribe(
-      (article) => this.router.navigateByUrl('/article/' + article.slug),
+      (article) => this.router.navigateByUrl("/article/" + article.slug),
       (err) => {
         this.errors = err;
         this.isSubmitting = false;

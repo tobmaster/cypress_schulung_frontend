@@ -1,26 +1,26 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: 'settings',
+    path: "settings",
     loadChildren: () =>
-      import('./settings/settings.module').then((x) => x.SettingsModule),
+      import("./settings/settings.module").then((x) => x.SettingsModule),
   },
   {
-    path: 'profile',
+    path: "profile",
     loadChildren: () =>
-      import('./profile/profile.module').then((x) => x.ProfileModule),
+      import("./profile/profile.module").then((x) => x.ProfileModule),
   },
   {
-    path: 'editor',
+    path: "editor",
     loadChildren: () =>
-      import('./editor/editor.module').then((x) => x.EditorModule),
+      import("./editor/editor.module").then((x) => x.EditorModule),
   },
   {
-    path: 'article',
+    path: "article",
     loadChildren: () =>
-      import('./article/article.module').then((x) => x.ArticleModule),
+      import("./article/article.module").then((x) => x.ArticleModule),
   },
 ];
 

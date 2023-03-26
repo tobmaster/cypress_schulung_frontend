@@ -1,69 +1,87 @@
 <html>
-<head>
-    <style>.lds-circle {
+  <head>
+    <style>
+      .lds-circle {
         display: inline-block;
         transform: translateZ(1px);
-    }
+      }
 
-    .lds-circle > div {
+      .lds-circle > div {
         display: inline-block;
         width: 64px;
         height: 64px;
         margin: 8px;
         border-radius: 50%;
-        background: gold;;
+        background: gold;
         animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-    }
+      }
 
-    @keyframes lds-circle {
-        0%, 100% {
-            animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+      @keyframes lds-circle {
+        0%,
+        100% {
+          animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
         }
         0% {
-            transform: rotateY(0deg);
+          transform: rotateY(0deg);
         }
         50% {
-            transform: rotateY(1800deg);
-            animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+          transform: rotateY(1800deg);
+          animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
         }
         100% {
-            transform: rotateY(3600deg);
+          transform: rotateY(3600deg);
         }
-    }
+      }
     </style>
-</head>
-<body><p>Welcome to shitty app</p>
-<h1>Async N+1 Challenge</h1>
-<ul id="customerlist">
-    <li><a data-id="Details for customer 1" href="#customer=1">Customer 1</a></li>
-    <li><a data-id="Details for customer 2" href="#customer=2">Customer 2</a></li>
-    <li><a data-id="Details for customer 3" href="#customer=3">Customer 3</a></li>
-    <li><a data-id="Details for customer 4" href="#customer=4">Customer 4</a></li>
-</ul>
-<div id="detail"></div>
-<script>    function showSpinner() {
-    document.getElementById('detail').innerHTML = '<div class="lds-circle"><div></div></div>';
-}
+  </head>
+  <body>
+    <p>Welcome to shitty app</p>
+    <h1>Async N+1 Challenge</h1>
+    <ul id="customerlist">
+      <li>
+        <a data-id="Details for customer 1" href="#customer=1">Customer 1</a>
+      </li>
+      <li>
+        <a data-id="Details for customer 2" href="#customer=2">Customer 2</a>
+      </li>
+      <li>
+        <a data-id="Details for customer 3" href="#customer=3">Customer 3</a>
+      </li>
+      <li>
+        <a data-id="Details for customer 4" href="#customer=4">Customer 4</a>
+      </li>
+    </ul>
+    <div id="detail"></div>
+    <script>
+      function showSpinner() {
+        document.getElementById("detail").innerHTML =
+          '<div class="lds-circle"><div></div></div>';
+      }
 
-function clickCustomer(e) {
-    showSpinner();
-    const dataset = Object.assign({}, e.target.dataset);
-    setTimeout(() => {
-        document.getElementById('detail').innerHTML = '<h2>Customer Detail:</h2>';
+      function clickCustomer(e) {
         showSpinner();
+        const dataset = Object.assign({}, e.target.dataset);
         setTimeout(() => {
+          document.getElementById("detail").innerHTML =
+            "<h2>Customer Detail:</h2>";
+          showSpinner();
+          setTimeout(() => {
             showCustomerDetail(dataset);
-        }, 500);
-    }, 50);
-}
+          }, 500);
+        }, 50);
+      }
 
-function showCustomerDetail(dataset) {
-    if (dataset.id) {
-        document.getElementById('detail').innerHTML = `<h2>Customer Detail:</h2><h4>${dataset.id}</h4><img src="https://i.pravatar.cc/250?u=${dataset.id}" />`;
-    }
-}
+      function showCustomerDetail(dataset) {
+        if (dataset.id) {
+          document.getElementById(
+            "detail"
+          ).innerHTML = `<h2>Customer Detail:</h2><h4>${dataset.id}</h4><img src="https://i.pravatar.cc/250?u=${dataset.id}" />`;
+        }
+      }
 
-document.getElementById('customerlist').addEventListener("click", clickCustomer)
-</script>
-</body>
+      document
+        .getElementById("customerlist")
+        .addEventListener("click", clickCustomer);
+    </script>
+  </body>
 </html>

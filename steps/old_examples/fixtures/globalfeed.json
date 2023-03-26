@@ -1,52 +1,43 @@
 {
-    "articles": [
-        {
-            "id": 1,
-            "createdAt": "2021-03-22T00:03:15.102Z",
-            "updatedAt": "2021-03-22T00:03:15.102Z",
-            "slug": "cypress-rockt",
-            "title": "Cypress rockt",
-            "description": "Cypress hilft. QA Engineers überglücklich",
-            "body": "The web has evolved.\nFinally, testing has too.\nFast, easy and reliable testing for anything that runs in a browser.",
-            "tagList": [
-                "cypress",
-                "testing",
-                "e2e"
-            ],
-            "favorited": false,
-            "favoritesCount": 5,
-            "author": {
-                "id": 2,
-                "username": "Tobias",
-                "bio": "Cypress ambassador",
-                "image": "https://cdn4.iconfinder.com/data/icons/super-hero/154/superman-avatar-hero-man-512.png",
-                "following": false
-            }
-        },
-        {
-            "id": 2,
-            "createdAt": "2021-03-22T00:03:15.102Z",
-            "updatedAt": "2021-03-22T00:03:15.102Z",
-            "slug": "cypress-rockt",
-            "title": "Instabile e2e Test",
-            "description": "Selenium kann anstrengend sein.",
-            "body": "Bla bla bla",
-            "tagList": [
-                "selenium",
-                "testing",
-                "instable",
-                "e2e"
-            ],
-            "favorited": false,
-            "favoritesCount": 2,
-            "author": {
-                "id": 2,
-                "username": "Tobias",
-                "bio": "Cypress ambassador",
-                "image": "https://cdn4.iconfinder.com/data/icons/super-hero/154/superman-avatar-hero-man-512.png",
-                "following": false
-            }
-        }
-    ],
-    "articlesCount": 1
+  "articles": [
+    {
+      "id": 1,
+      "createdAt": "2021-03-22T00:03:15.102Z",
+      "updatedAt": "2021-03-22T00:03:15.102Z",
+      "slug": "cypress-rockt",
+      "title": "Cypress rockt",
+      "description": "Cypress hilft. QA Engineers überglücklich",
+      "body": "The web has evolved.\nFinally, testing has too.\nFast, easy and reliable testing for anything that runs in a browser.",
+      "tagList": ["cypress", "testing", "e2e"],
+      "favorited": false,
+      "favoritesCount": 5,
+      "author": {
+        "id": 2,
+        "username": "Tobias",
+        "bio": "Cypress ambassador",
+        "image": "https://cdn4.iconfinder.com/data/icons/super-hero/154/superman-avatar-hero-man-512.png",
+        "following": false
+      }
+    },
+    {
+      "id": 2,
+      "createdAt": "2021-03-22T00:03:15.102Z",
+      "updatedAt": "2021-03-22T00:03:15.102Z",
+      "slug": "cypress-rockt",
+      "title": "Instabile e2e Test",
+      "description": "Selenium kann anstrengend sein.",
+      "body": "Bla bla bla",
+      "tagList": ["selenium", "testing", "instable", "e2e"],
+      "favorited": false,
+      "favoritesCount": 2,
+      "author": {
+        "id": 2,
+        "username": "Tobias",
+        "bio": "Cypress ambassador",
+        "image": "https://cdn4.iconfinder.com/data/icons/super-hero/154/superman-avatar-hero-man-512.png",
+        "following": false
+      }
+    }
+  ],
+  "articlesCount": 1
 }

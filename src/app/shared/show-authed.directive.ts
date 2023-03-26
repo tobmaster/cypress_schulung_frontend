@@ -4,11 +4,11 @@ import {
   OnInit,
   TemplateRef,
   ViewContainerRef,
-} from '@angular/core';
+} from "@angular/core";
 
-import { UserService } from '../core';
+import { UserService } from "../core";
 
-@Directive({ selector: '[appShowAuthed]' })
+@Directive({ selector: "[appShowAuthed]" })
 export class ShowAuthedDirective implements OnInit {
   constructor(
     private templateRef: TemplateRef<any>,

@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Router } from "@angular/router";
 
-import { Article, ArticlesService, UserService } from '../../core';
-import { of } from 'rxjs';
-import { concatMap, tap } from 'rxjs/operators';
+import { Article, ArticlesService, UserService } from "../../core";
+import { of } from "rxjs";
+import { concatMap, tap } from "rxjs/operators";
 
 @Component({
-  selector: 'app-favorite-button',
-  templateUrl: './favorite-button.component.html',
+  selector: "app-favorite-button",
+  templateUrl: "./favorite-button.component.html",
 })
 export class FavoriteButtonComponent {
   constructor(
@@ -28,7 +28,7 @@ export class FavoriteButtonComponent {
         concatMap((authenticated) => {
           // Not authenticated? Push to login screen
           if (!authenticated) {
-            this.router.navigateByUrl('/login');
+            this.router.navigateByUrl("/login");
             return of(null);
           }
 

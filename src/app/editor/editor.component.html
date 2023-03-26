@@ -2,61 +2,71 @@
   <div class="container page">
     <div class="row">
       <div class="col-md-10 offset-md-1 col-xs-12">
-
         <app-list-errors [errors]="errors"></app-list-errors>
 
         <form [formGroup]="articleForm">
           <fieldset [disabled]="isSubmitting">
-
             <div class="form-group">
               <label class for="title">Article Title</label>
-              <input class="form-control form-control-lg"
+              <input
+                class="form-control form-control-lg"
                 formControlName="title"
                 type="text"
-                id="title" />
+                id="title"
+              />
             </div>
 
             <div class="form-group">
               <label class for="description">Description</label>
-              <input class="form-control"
+              <input
+                class="form-control"
                 id="description"
                 formControlName="description"
-                type="text" />
+                type="text"
+              />
             </div>
 
             <div class="form-group">
               <label class for="body">Write your article (in markdown)</label>
-              <textarea class="form-control"
+              <textarea
+                class="form-control"
                 formControlName="body"
                 id="body"
-                rows="8">
+                rows="8"
+              >
               </textarea>
             </div>
 
             <div class="form-group">
               <label class for="tags">Enter tags</label>
-              <input class="form-control"
+              <input
+                class="form-control"
                 id="tags"
                 type="text"
                 [formControl]="tagField"
-                (keyup.enter)="addTag()" />
+                (keyup.enter)="addTag()"
+              />
 
               <div class="tag-list">
-                <span *ngFor="let tag of article.tagList"
-                  class="tag-default tag-pill">
+                <span
+                  *ngFor="let tag of article.tagList"
+                  class="tag-default tag-pill"
+                >
                   <i class="ion-close-round" (click)="removeTag(tag)"></i>
                   {{ tag }}
                 </span>
               </div>
             </div>
 
-            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">
+            <button
+              class="btn btn-lg pull-xs-right btn-primary"
+              type="button"
+              (click)="submitForm()"
+            >
               Publish Article
             </button>
-
           </fieldset>
         </form>
-
       </div>
     </div>
   </div>

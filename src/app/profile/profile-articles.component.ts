@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { ArticleListConfig, Profile } from '../core';
+import { ArticleListConfig, Profile } from "../core";
 
 @Component({
-  selector: 'app-profile-articles',
-  templateUrl: './profile-articles.component.html',
+  selector: "app-profile-articles",
+  templateUrl: "./profile-articles.component.html",
 })
 export class ProfileArticlesComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   profile: Profile;
   articlesConfig: ArticleListConfig = {
-    type: 'all',
+    type: "all",
     filters: {},
   };
 
@@ -20,7 +20,7 @@ export class ProfileArticlesComponent implements OnInit {
     this.route.parent.data.subscribe((data: any) => {
       this.profile = data.profile;
       this.articlesConfig = {
-        type: 'all',
+        type: "all",
         filters: {},
       }; // Only method I found to refresh article load on swap
       this.articlesConfig.filters.author = this.profile.username;

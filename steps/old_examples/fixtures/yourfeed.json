@@ -8,12 +8,7 @@
       "title": "Cypress Workshop - JavaScript Days 2021",
       "description": "Ein Workshop über E2E Testing mit Cypress",
       "body": "42",
-      "tagList": [
-        "e2e",
-        "cypress",
-        "testing",
-        "javascript"
-      ],
+      "tagList": ["e2e", "cypress", "testing", "javascript"],
       "favorited": false,
       "favoritesCount": 0,
       "author": {
@@ -32,12 +27,7 @@
       "title": "Effizientes E2E Testing",
       "description": "End-to-End Tests - ohne Schmerzen",
       "body": "Das Leben ist wie eine Schachtel Pralinen, Man weiß nie, was man bekommt.",
-      "tagList": [
-        "e2e",
-        "cypress",
-        "testing",
-        "spass"
-      ],
+      "tagList": ["e2e", "cypress", "testing", "spass"],
       "favorited": true,
       "favoritesCount": 5,
       "author": {
@@ -51,6 +41,3 @@
   ],
   "articlesCount": 2
 }
-
-
-

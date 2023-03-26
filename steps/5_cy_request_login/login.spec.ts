@@ -1,23 +1,23 @@
 /// <reference types="cypress" />
 
-import { delayLogin } from '../helper/delay';
+import { delayLogin } from "../helper/delay";
 
-describe('Navigate to Log In page', () => {
+describe("Navigate to Log In page", () => {
   beforeEach(() => {
     cy.loginTestUser();
-    cy.visit('/');
+    cy.visit("/");
   });
 
-  it('should be able to log in', () => {
-    cy.intercept('GET', '**/articles/feed?**', { fixture: 'yourfeed.json' }).as(
-      'personalfeed'
+  it("should be able to log in", () => {
+    cy.intercept("GET", "**/articles/feed?**", { fixture: "yourfeed.json" }).as(
+      "personalfeed"
     );
 
-    cy.get('[data-testid="username"]').should('contain', 'Test User');
+    cy.get('[data-testid="username"]').should("contain", "Test User");
 
-    cy.wait('@personalfeed');
-    cy.get('app-article-list')
-      .find('app-article-preview')
-      .should('have.length', 2);
+    cy.wait("@personalfeed");
+    cy.get("app-article-list")
+      .find("app-article-preview")
+      .should("have.length", 2);
   });
 });
