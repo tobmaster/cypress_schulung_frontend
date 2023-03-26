@@ -19,7 +19,6 @@
         "@angular/common": "^14.2.2",
         "@angular/compiler": "^14.2.2",
         "@angular/core": "^14.2.2",
-        "cypress": "^12.8.0",
         "@angular/forms": "^14.2.2",
         "@angular/platform-browser": "^14.2.2",
         "@angular/platform-browser-dynamic": "^14.2.2",
@@ -30,6 +29,7 @@
         "zone.js": "~0.11.4"
     },
     "devDependencies": {
+        "cypress": "^12.8.0",
         "@angular-devkit/build-angular": "^14.2.3",
         "@angular/cli": "^14.2.3",
         "@angular/compiler-cli": "^14.2.2",
