@@ -11,7 +11,7 @@ describe('Login', () => {
             .type('testuser@example.com');
 
         cy.get('[data-testid="password"]')
-            .type('password{enter}');
+            .type('password');
 
 
         cy.get('[data-testid="login-button"]')
