@@ -22,7 +22,7 @@ describe("StepperComponent", () => {
         cy.get(counterSelector).should("have.text", 3);
     });
 
-    it.only("should decrease", () => {
+    it("should decrease", () => {
         cy.mount(StepperComponent, {
             componentProperties: {
                 count: 10,
