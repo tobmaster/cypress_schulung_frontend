@@ -16,6 +16,8 @@ Cypress.Commands.add('loginByUI', (username, password) => {
         .click();
 
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+
+    return cy.get('[data-testid="header-profile-link"]');
 });
 
 Cypress.Commands.add('loginByAPI', (username, password) => {
