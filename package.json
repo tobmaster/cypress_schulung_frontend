@@ -8,7 +8,9 @@
     "start": "ng serve",
     "build": "ng build --prod  --base-href frontend && cp CNAME dist/CNAME",
     "test": "ng test",
-    "lint": "ng lint --force"
+    "lint": "ng lint --force",
+    "cy:open": "cypress open",
+    "e2e:open": "cypress open --e2e --browser edge"
   },
   "private": true,
   "dependencies": {
