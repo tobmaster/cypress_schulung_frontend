@@ -4,7 +4,7 @@ import { loginByUI } from "./loginByUI";
 describe('Login', () => {
 
     beforeEach(() => {
-        loginByUI();
+        cy.loginByUI('testuser@example.com', 'password');
     });
 
     it('should be possible to login', () => {
