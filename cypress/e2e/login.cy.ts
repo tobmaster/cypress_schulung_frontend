@@ -19,6 +19,6 @@ describe('Login', () => {
 
         cy.url().should('eq', `${Cypress.config().baseUrl}/`);
 
-        cy.get('[data-testid="your-feed"]').should('have.class', 'inactive');
+        cy.get('[data-testid="your-feed"]').should('have.class', 'active');
     })
 })
