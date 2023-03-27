@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-export {};
+export { };
 
 Cypress.Commands.add('loginByUI', (username, password) => {
     cy.visit('/login');
@@ -10,7 +10,7 @@ Cypress.Commands.add('loginByUI', (username, password) => {
         .type(username);
 
     cy.get('[data-testid="password"]')
-        .type(password, {log: false});
+        .type(password, { log: false });
 
     cy.get('[data-testid="login-button"]')
         .click();
@@ -18,10 +18,23 @@ Cypress.Commands.add('loginByUI', (username, password) => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
 });
 
+Cypress.Commands.add('loginByAPI', (username, password) => {
+    return cy.request({
+        method: "POST",
+        url: "http://vrt.struckmeier.name:3000/api/users/login",
+        body: { "user": { "email": username, "password": password } }
+    }).then(response => {
+        expect(response.status).to.eq(200);
+        expect(response.body.user).to.have.property("token");
+        localStorage.setItem('jwtToken', response.body.user.token);
+    })
+});
+
 declare global {
     namespace Cypress {
         interface Chainable {
             loginByUI(username: string, password: string): Chainable
+            loginByAPI(username: string, password: string): Chainable
         }
     }
 }
