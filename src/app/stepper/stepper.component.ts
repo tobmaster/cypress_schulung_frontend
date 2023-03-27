@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input, OnInit} from "@angular/core";
 
 @Component({
   selector: "app-stepper",
@@ -22,7 +22,7 @@ import { Component, Input } from "@angular/core";
     `
   ]*/
 })
-export class StepperComponent {
+export class StepperComponent  {
   @Input() count = 0;
 
   decrement(): void {
