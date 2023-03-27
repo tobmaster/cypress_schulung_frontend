@@ -31,13 +31,13 @@ describe('Login', () => {
 
         cy.get('@article')
             .find('.preview-link')
-            .contains('End-To-End Testing leichtgemacht');
+            .contains('END-TO-END TESTING THE EASY WAY');
 
         cy.get('@tags').eq(0)
-            .should('contain', 'e2e');
-        cy.get('@tags').eq(1)
-            .should('contain', 'testing');
-        cy.get('@tags').eq(2)
             .should('contain', 'cypress');
+        cy.get('@tags').eq(1)
+            .should('contain', 'e2e');
+        cy.get('@tags').eq(2)
+            .should('contain', 'testing');
     })
 })
