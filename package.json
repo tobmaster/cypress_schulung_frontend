@@ -9,9 +9,7 @@
     "build": "ng build --prod  --base-href frontend && cp CNAME dist/CNAME",
     "test": "ng test",
     "lint": "ng lint --force",
-    "cy:open": "cypress open --component --browser edge",
-    "e2e:open": "cypress open --e2e --browser edge",
-    "e2e:run": "cypress run --e2e --browser edge"
+    "cy:open": "cypress open"
   },
   "private": true,
   "dependencies": {
