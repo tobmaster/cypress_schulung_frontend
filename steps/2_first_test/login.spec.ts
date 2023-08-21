@@ -8,8 +8,9 @@ describe("Navigate to Log In page", () => {
     // check if log in page is correct
     cy.contains("Sign in");
 
+
     // enter user data
-    cy.get("[data-testid=email]").type("testuser@example.com");
+    cy.get('[data-testid="email"]').type("testuser@example.com");
     cy.get("[data-testid=password]").type("password");
 
     // click login button
