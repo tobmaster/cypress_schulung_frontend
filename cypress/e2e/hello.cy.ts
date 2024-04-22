@@ -11,5 +11,7 @@ describe('adesso.de', () => {
 
     cy.get('.h1').should('contain', 'Suchergebnisse');
 
-  })
+  });
+
+
 })
